@@ -45,4 +45,29 @@ function loadingAnimation(){
 }
 loadingAnimation();
 
+//...yha par sirf maine mouse ko move kiya hai...//
+document.addEventListener("mousemove",function(dets){
+    gsap.to("#cursor",{
+      left:dets.x,
+      top:dets.y,
+    })
+})
+
+//---yha par main ne sab ko select kiya hai... document.querySelectorAll se kisko => (".child") ko jis ke sath
+//----mera mouse saray page par move kary ga//
+
+document.querySelectorAll(".child").forEach(function (elem) {
+  elem.addEventListener("mouseenter", function () {
+    gsap.to("#cursor", {
+      transform: "translate(-50%,-50%) scale(1)",
+    });
+  });
+  elem.addEventListener("mouseleave", function () {
+    gsap.to("#cursor", {
+      transform: "translate(-50%,-50%) scale(0)",
+    });
+  });
+});
+
+cursorAnimation();
 
